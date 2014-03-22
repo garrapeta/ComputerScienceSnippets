@@ -103,7 +103,7 @@ public class BinarySearchTreeTest {
     }
 
     @Test
-    public void posrOrder_traversesTreeCorrectly() {
+    public void postOrder_traversesTreeCorrectly() {
         BinarySearchTree bst = create();
         List<Node> l = bst.postOrder();
 
@@ -116,6 +116,22 @@ public class BinarySearchTreeTest {
         assertEquals(l.get(6).key, 11);
         assertEquals(l.get(7).key, 9);
         assertEquals(l.get(8).key, 8);
+    }
+
+    @Test
+    public void levelOrder_traversesTreeCorrectly() {
+        BinarySearchTree bst = create();
+        List<Node> l = bst.levelOrder();
+
+        assertEquals(l.get(0).key, 8);
+        assertEquals(l.get(1).key, 5);
+        assertEquals(l.get(2).key, 9);
+        assertEquals(l.get(3).key, 4);
+        assertEquals(l.get(4).key, 7);
+        assertEquals(l.get(5).key, 11);
+        assertEquals(l.get(6).key, 1);
+        assertEquals(l.get(7).key, 3);
+        assertEquals(l.get(8).key, 2);
     }
 
     private BinarySearchTree create() {

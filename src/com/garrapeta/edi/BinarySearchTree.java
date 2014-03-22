@@ -108,6 +108,30 @@ public class BinarySearchTree {
         list.add(n);
     }
 
+    List<Node> levelOrder() {
+        List<Node> list = new ArrayList<Node>();
+        if (root != null) {
+            levelOrder(root, list);
+        }
+        return list;
+    }
+
+    private void levelOrder(Node n, List<Node> list) {
+        List<Node> queue = new ArrayList<Node>();
+        queue.add(n);
+
+        while (!queue.isEmpty()) {
+            Node node = queue.remove(0);
+            list.add(node);
+            if (node.left != null) {
+                queue.add(node.left);
+            }
+            if (node.right != null) {
+                queue.add(node.right);
+            }
+        }
+    }
+
     class Node {
         final int key;
         final Object value;
