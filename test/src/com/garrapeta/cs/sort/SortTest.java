@@ -1,5 +1,7 @@
 package com.garrapeta.cs.sort;
 
+import static org.junit.Assert.assertTrue;
+
 import java.util.Random;
 
 import org.junit.Before;
@@ -16,22 +18,29 @@ public abstract class SortTest {
     }
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp()
+            throws Exception {
         r = new Random();
     }
 
     @Test
     public void sort_sorts_twoNumbers() {
-        int[] a = new int[] { 4, 3 };
+        int[] a = new int[] {
+                4,
+                3 };
         sorter.sort(a);
-        assert (isSorted(a));
+        assertTrue(isSorted(a));
     }
 
     @Test
     public void sort_sorts_inASimpleCase() {
-        int[] a = new int[] { 4, 3, 2, 1 };
+        int[] a = new int[] {
+                4,
+                3,
+                2,
+                1 };
         sorter.sort(a);
-        assert (isSorted(a));
+        assertTrue(isSorted(a));
     }
 
     @Test
@@ -43,13 +52,13 @@ public abstract class SortTest {
         }
 
         sorter.sort(a);
-        assert (isSorted(a));
+        assertTrue(isSorted(a));
     }
 
     private boolean isSorted(int[] a) {
         int prev = Integer.MIN_VALUE;
         for (int current : a) {
-            if (current > prev) {
+            if (current < prev) {
                 return false;
             }
             prev = current;
