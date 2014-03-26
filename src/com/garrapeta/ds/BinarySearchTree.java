@@ -1,4 +1,4 @@
-package com.garrapeta.edi;
+package com.garrapeta.ds;
 
 import java.util.ArrayList;
 import java.util.List;

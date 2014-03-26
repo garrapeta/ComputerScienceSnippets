@@ -1,4 +1,4 @@
-package com.garrapeta.edi;
+package com.garrapeta.ds;
 
 import static org.junit.Assert.assertEquals;
 
@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.garrapeta.edi.BinarySearchTree.Node;
+import com.garrapeta.ds.BinarySearchTree.Node;
 
 public class BinarySearchTreeTest {
 
