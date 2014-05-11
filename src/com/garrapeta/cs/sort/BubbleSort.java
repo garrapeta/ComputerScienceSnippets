@@ -18,6 +18,6 @@ public class BubbleSort implements SortAlgorithm {
                 }
             }
         } while (swapped);
-
     }
+
 }
