@@ -10,9 +10,9 @@ public class HeapSort implements SortAlgorithm {
 
         int size = a.length;
         for (int i = 0; i < a.length; i++) {
-            int next = HeapArrayHelper.delete(a, size);
+            int next = HeapArrayHelper.delete(a, 0);
             size--;
-            a[a.length - 1 - i] = next;
+            a[size] = next;
         }
     }
 }

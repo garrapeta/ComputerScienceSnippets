@@ -1,4 +1,6 @@
-package com.garrapeta.cs.sort;
+package com.garrapeta.alg.sort;
+
+import com.garrapeta.cs.sort.InsertionSort;
 
 public class InsertionSortTest extends SortTest {
 

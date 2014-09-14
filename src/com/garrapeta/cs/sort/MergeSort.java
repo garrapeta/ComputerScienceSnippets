@@ -1,4 +1,5 @@
 package com.garrapeta.cs.sort;
+
 public class MergeSort implements SortAlgorithm {
 
     @Override
@@ -13,21 +14,30 @@ public class MergeSort implements SortAlgorithm {
         merge(a, left, right);
     }
 
-    private static int[] merge(int[] a, int[] left, int[] right) {
-        int i1 = 0;   // index into left array
-        int i2 = 0;   // index into right array
-        
+    private void merge(int[] a, int[] left, int[] right) {
+        int lidx = 0;
+        int ridx = 0;
+
         for (int i = 0; i < a.length; i++) {
-            if (i2 >= right.length || (i1 < left.length && 
-                    left[i1] <= right[i2])) {
-                a[i] = left[i1];    // take from left
-                i1++;
+            int smaller;
+
+            if (lidx == left.length) {
+                smaller = right[ridx];
+                ridx++;
+            } else if (ridx == right.length) {
+                smaller = left[lidx];
+                lidx++;
+            } else if (left[lidx] < right[ridx]) {
+                smaller = left[lidx];
+                lidx++;
             } else {
-                a[i] = right[i2];   // take from right
-                i2++;
+                smaller = right[ridx];
+                ridx++;
             }
+
+            a[i] = smaller;
         }
-        return a;
+
     }
 
     private int[] leftHalf(int[] a) {

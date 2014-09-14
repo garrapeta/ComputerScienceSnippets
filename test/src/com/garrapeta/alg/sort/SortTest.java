@@ -1,4 +1,4 @@
-package com.garrapeta.cs.sort;
+package com.garrapeta.alg.sort;
 
 import static org.junit.Assert.assertTrue;
 
@@ -6,6 +6,8 @@ import java.util.Random;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import com.garrapeta.cs.sort.SortAlgorithm;
 
 public abstract class SortTest {
 
@@ -27,6 +29,16 @@ public abstract class SortTest {
     public void sort_sorts_twoNumbers() {
         int[] a = new int[] {
                 4,
+                3 };
+        sorter.sort(a);
+        assertTrue(isSorted(a));
+    }
+
+    @Test
+    public void sort_sorts_threeNumbers() {
+        int[] a = new int[] {
+                4,
+                2,
                 3 };
         sorter.sort(a);
         assertTrue(isSorted(a));
