@@ -45,6 +45,17 @@ public abstract class SortTest {
     }
 
     @Test
+    public void sort_sorts_fourNumbers() {
+        int[] a = new int[] {
+                4,
+                2,
+                3,
+                0 };
+        sorter.sort(a);
+        assertTrue(isSorted(a));
+    }
+
+    @Test
     public void sort_sorts_inASimpleCase() {
         int[] a = new int[] {
                 4,
