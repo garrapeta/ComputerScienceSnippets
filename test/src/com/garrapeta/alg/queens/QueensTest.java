@@ -1,5 +1,7 @@
 package com.garrapeta.alg.queens;
 
+import java.util.Set;
+
 import org.junit.Test;
 
 public class QueensTest {
@@ -7,17 +9,15 @@ public class QueensTest {
     @Test
     public void queens_4_returns_solution() {
         Queens queens = new Queens();
-        boolean[][] board = queens.solve(4);
-        print(board);
-        // assertTrue(isSolution(board));
+        Set<boolean[][]> sols = queens.solve(4);
+        print(sols);
     }
 
     @Test
     public void queens_8_returns_solution() {
         Queens queens = new Queens();
-        boolean[][] board = queens.solve(8);
-        print(board);
-        // assertTrue(isSolution(board));
+        Set<boolean[][]> sols = queens.solve(8);
+        print(sols);
     }
 
     // TODO: check solution
@@ -39,13 +39,19 @@ public class QueensTest {
     // return placements == boardSize;
     // }
 
-    public static void print(boolean[][] board) {
+    public static void print(Set<boolean[][]> sols) {
+        for (boolean[][] board : sols) {
+            print(board);
+        }
+    }
+
+    private static void print(boolean[][] board) {
         int length = board.length;
         for (int i = 0; i < length; i++) {
             System.out.print("-");
         }
         System.out.println();
-
+   
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < length; j++) {
                 System.out.print(board[i][j] ? "X" : ".");

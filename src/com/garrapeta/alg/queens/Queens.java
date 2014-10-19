@@ -1,40 +1,40 @@
 package com.garrapeta.alg.queens;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Queens {
 
-    boolean[][] solve(int size) {
-        return solve(0, size, new boolean[size][size]);
+    Set<boolean[][]> solve(int size) {
+        final Set<boolean[][]> sols = new HashSet<boolean[][]>();
+        solve(0, new boolean[size][size], sols);
+        return sols;
     }
 
-    boolean[][] solve(int current, int target, boolean[][] board) {
-        if (current == target) {
-            return board;
+    void solve(int i,  boolean[][] board, Set<boolean[][]> sols) {
+        if (i == board.length) {
+            sols.add(board);
+            return;
         }
 
         int boardSize = board[0].length;
-        for (int i = 0; i < boardSize; i++) {
-            for (int j = 0; j < boardSize; j++) {
-                if (isAllowed(board, i, j)) {
-                    boolean[][] newBoard = solve(current + 1, target, place(board, i, j));
-                    if (newBoard != null) {
-                        return newBoard;
-                    }
-                }
+        for (int j = 0; j < boardSize; j++) {
+            if (isAllowed(board, i, j)) {
+                boolean[][] board2 = copy(board);
+                board2[i][j] = true;
+                solve(i + 1, board2, sols);
             }
         }
 
-        return null;
     }
 
-    private boolean[][] place(boolean[][] board, int i, int j) {
+    private boolean[][] copy(boolean[][] board) {
         int boardSize = board[0].length;
         boolean[][] newBoard = new boolean[boardSize][boardSize];
 
         for (int h = 0; h < boardSize; h++) {
             System.arraycopy(board[h], 0, newBoard[h], 0, boardSize);
         }
-
-        newBoard[i][j] = true;
 
         return newBoard;
     }

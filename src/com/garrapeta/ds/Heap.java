@@ -110,6 +110,9 @@ public class Heap {
                     return false;
                 }
             }
+
+            long l = (long) Math.pow(2, 3);
+            l = l & 1;
             return true;
         }
 
@@ -117,6 +120,22 @@ public class Heap {
             int tmp = a[x];
             a[x] = a[y];
             a[y] = tmp;
+        }
+
+        static boolean isValid(long a, int n) {
+            int zeros = 0;
+            int ones = 0;
+
+            for (int i = 0; i < n; i++) {
+                if ((a & 1) > 0) {
+                    ones++;
+                } else {
+                    zeros++;
+                }
+                a = a >> 1;
+            }
+
+            return zeros % 5 == 0 && ones % 3 == 0;
         }
 
     }
